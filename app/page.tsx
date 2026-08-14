@@ -1,4 +1,5 @@
 
+import { Span } from "next/dist/trace";
 import Image from "next/image";
 
 // so this is a react component 
@@ -22,17 +23,78 @@ export default function Home() {
                 Aspiring ML engineer. Student. Builder
               </p>
           </div>
-          <div className="hero-image">
+          <div className="hero-pic2">
             <Image 
-            src="/images/hero-image.png"
+            src="/hero-pic3.png"
             alt="Developer Illustration"
-            width={200}
-            height={200}
+            width={500}
+            height={500}
+      
             priority
             />
           </div>
         </div>
       </section>
+
+      {/* Intro Section */}
+      <section className="intro-section" id="intro">
+        <div className="intro-content">
+          <div className="intro-text">
+            <h2 className="intro-heading">
+              LET ME <span className="hero-name-highlight">INTRODUCE</span> MYSELF
+            </h2>
+            <p className="intro-body">
+            I&apos;m an aspiring ML engineer who loves turning ideas into real
+              projects. I enjoy learning new technologies and building things
+              that actually work.
+              <br />
+              <br />
+              I&apos;m interested in{" "}
+              <strong className="hero-name-highlight">
+                machine learning, Python, and web development
+              </strong>
+              , and I&apos;m always looking to grow as a developer and builder.
+            </p>
+          </div>
+          <div className="intro-avatar">
+            <Image
+            src="/profile-pic.png"
+            alt="Profile Picture"
+            width={250}
+            height={250}
+            />
+          </div>
+        </div>
+      </section>
+    {/* Socials Section */}
+    <section className="social-section">
+      <div className="social-content">
+        <h2 className="social-heading">Find Me On</h2>
+        <p className="social-subtext">
+          Feel free to <span className="hero-name-highlight">connect</span> with me
+        </p>
+        <ul className="social-links">
+          <li>
+            <a
+            href="https://github.com/AkashGunathilaka"
+            target="_blank"
+            rel="nonreferrer"
+            >
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
+            href="https://www.linkedin.com/in/akash-gunathilaka/"
+            target="_blank"
+            rel="nonreferrer"
+            >
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
     </main>
   );
 }
