@@ -1,5 +1,4 @@
 
-import { Span } from "next/dist/trace";
 import Image from "next/image";
 
 // so this is a react component 
@@ -23,9 +22,9 @@ export default function Home() {
                 Aspiring ML engineer. Student. Builder
               </p>
           </div>
-          <div className="hero-pic2">
+          <div className="hero-pic.png">
             <Image 
-            src="/hero-pic3.png"
+            src="/hero-pic.png"
             alt="Developer Illustration"
             width={500}
             height={500}
@@ -78,7 +77,7 @@ export default function Home() {
             <a
             href="https://github.com/AkashGunathilaka"
             target="_blank"
-            rel="nonreferrer"
+            rel="noreferrer"
             >
               GitHub
             </a>
@@ -87,7 +86,7 @@ export default function Home() {
             <a
             href="https://www.linkedin.com/in/akash-gunathilaka/"
             target="_blank"
-            rel="nonreferrer"
+            rel="noreferrer"
             >
               LinkedIn
             </a>
