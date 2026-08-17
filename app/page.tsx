@@ -22,14 +22,14 @@ export default function Home() {
                 Aspiring ML engineer. Student. Builder
               </p>
           </div>
-          <div className="hero-pic.png">
-            <Image 
-            src="/hero-pic.png"
-            alt="Developer Illustration"
-            width={500}
-            height={500}
-      
-            priority
+          <div className="hero-image">
+            <Image
+              src="/hero-pic.png"
+              alt="Developer illustration"
+              width={450}
+              height={450}
+              className="hero-image-img"
+              priority
             />
           </div>
         </div>

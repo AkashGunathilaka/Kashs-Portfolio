@@ -16,11 +16,11 @@ export default function Projects() {
         description="A full-stack learning analytics platform that identifies at-risk university students early and helps staff manage interventions before outcomes are final. Built with FastAPI and PostgreSQL on the backend, React and Vite on the frontend, and an XGBoost model trained on the OULAD dataset for at-risk predictions, intervention tracking, and role-based admin/staff dashboards."
         techStack={["React", "TypeScript", "FastAPI", "PostgreSQL", "XGBoost", "Python"]}
         ghLink="https://github.com/AkashGunathilaka/Early-Intervention-Management-System"
+        reportLink="/projects/EIMSreport.pdf"
         images={[
-          "/projects/Login.png",
-          "/projects/Dashboard.png",
-          "/projects/Models.png",
-          "/projects/Students.png",
+          "/projects/eimspic1.png",
+          "/projects/eimspic2.png",
+          "/projects/eimspic3.png",
         ]}
       />
     </main>
