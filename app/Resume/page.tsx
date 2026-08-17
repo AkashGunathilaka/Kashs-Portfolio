@@ -1,9 +1,9 @@
-import ResumeViewer from "@/components/resume/ResumeViewer";
+import ResumeClient from "@/components/resume/ResumeClient";
 
 export default function Resume() {
   return (
     <main>
-      <ResumeViewer />
+      <ResumeClient />
     </main>
   );
 }
