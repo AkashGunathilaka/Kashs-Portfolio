@@ -7,6 +7,7 @@ type FeaturedProjectProps = {
   techStack: string[];
   ghLink: string;
   demoLink?: string;
+  reportLink?: string;
   images?: string[];
 };
 
@@ -17,6 +18,7 @@ export default function FeaturedProject({
   techStack,
   ghLink,
   demoLink,
+  reportLink,
   images,
 }: FeaturedProjectProps) {
   return (
@@ -41,6 +43,11 @@ export default function FeaturedProject({
           {demoLink && (
             <a href={demoLink} target="_blank" rel="noreferrer">
               Demo
+            </a>
+          )}
+          {reportLink && (
+            <a href={reportLink} target="_blank" rel="noreferrer">
+              Project Report
             </a>
           )}
         </div>
