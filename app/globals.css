@@ -305,6 +305,10 @@ main,
   padding: 0;
 }
 
+.site-navbar-collapse {
+  display: contents;
+}
+
 .site-navbar-links li {
   position: relative;
   margin-left: 1.25rem;
@@ -315,7 +319,10 @@ main,
 }
 
 .site-navbar-links a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
   color: white;
   text-decoration: none;
   padding: 0.8rem 1rem;
@@ -328,10 +335,17 @@ main,
 }
 
 .nav-icon {
-  margin-bottom: 2px;
-  margin-right: 0.35rem;
+  flex-shrink: 0;
+  margin: 0;
   vertical-align: middle;
-  font-size: 1.1em;
+  font-size: 1.15em;
+  color: rgba(255, 99, 71, 0.95);
+  transition: color 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.site-navbar-links a:hover .nav-icon {
+  color: var(--accent);
+  transform: translateY(-1px);
 }
 
 .site-navbar-links a:hover {
@@ -363,12 +377,18 @@ main,
 .site-navbar-github {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  justify-content: center;
+  gap: 0.4rem;
+  white-space: nowrap;
   background: rgba(255, 99, 71, 0.36);
   border-radius: 6px;
   padding: 0.25rem 1.1rem !important;
   line-height: 1.4;
   transition: all 0.3s ease-out;
+}
+
+.site-navbar-github .nav-icon {
+  color: #ffd166;
 }
 
 .site-navbar-github:hover {
@@ -384,62 +404,167 @@ main,
 
 .site-navbar-toggle {
   display: none;
-  flex-direction: column;
-  gap: 5px;
+  position: relative;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0;
+  z-index: 2;
+}
+
+.site-navbar-toggle:focus,
+.site-navbar-toggle:active {
+  outline: 0;
 }
 
 .site-navbar-toggle span {
   display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: 27px;
   height: 4px;
-  background: #ff6347;
+  margin: 0;
+  background: var(--accent);
   border-radius: 2px;
-  transition: transform 0.35s ease, opacity 0.35s ease;
+  opacity: 1;
+  visibility: visible;
+  transform-origin: center;
+  transition: transform 0.35s ease-in-out, opacity 0.35s ease-in-out,
+    visibility 0.35s ease-in-out, background-color 0.35s ease-in-out;
+}
+
+.site-navbar-toggle span:nth-child(1) {
+  transform: translate(-50%, calc(-50% - 9px)) rotate(0deg);
+}
+
+.site-navbar-toggle span:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.site-navbar-toggle span:nth-child(3) {
+  transform: translate(-50%, calc(-50% + 9px)) rotate(0deg);
+}
+
+.site-navbar-toggle.open span:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(135deg);
+  opacity: 0.9;
+}
+
+.site-navbar-toggle.open span:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 0;
+  visibility: hidden;
+  background-color: transparent;
+}
+
+.site-navbar-toggle.open span:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(-135deg);
+  opacity: 0.9;
 }
 
 @media (max-width: 767px) {
   .site-navbar {
-    padding: 1rem 1.5rem;
+    padding: 1rem 2rem;
     font-size: 1.4rem;
-    background: var(--background);
+    background-color: #181a27;
+  }
+
+  .site-navbar-scrolled {
+    background-color: rgba(27, 26, 46, 0.66);
+  }
+
+  .site-navbar-inner {
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: auto;
+    gap: 0;
+  }
+
+  .site-navbar-brand {
+    max-width: calc(100% - 3.5rem);
+    flex-shrink: 1;
   }
 
   .site-navbar-toggle {
-    display: flex;
+    display: block;
+    margin-left: auto;
+  }
+
+  .site-navbar-collapse {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 0.35s ease-in-out;
+  }
+
+  .site-navbar-collapse.open {
+    grid-template-rows: 1fr;
   }
 
   .site-navbar-links {
-    display: none;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--surface-elevated);
-    padding: 1rem 0;
+    align-items: stretch;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+    position: static;
+    background: transparent;
+    padding: 0;
+    margin-top: 0;
+    border-top: 1px solid transparent;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease-in-out, transform 0.35s ease-in-out,
+      padding 0.35s ease-in-out, border-color 0.35s ease-in-out;
   }
 
-  .site-navbar-links.open {
-    display: flex;
+  .site-navbar-collapse.open .site-navbar-links {
+    padding: 0.5rem 0 0.75rem;
+    margin-top: 0.5rem;
+    border-top-color: rgba(255, 255, 255, 0.06);
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .site-navbar-links li {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    text-align: center;
     margin-left: 0;
   }
 
   .nav-github-item {
     margin-left: 0;
+    margin-top: 0.25rem;
+    display: flex;
+    justify-content: center;
   }
 
   .site-navbar-links a {
-    display: block;
-    padding: 0.75rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.7rem 1rem;
+    font-size: 1.1rem;
+    white-space: nowrap;
+  }
+
+  .site-navbar-github {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+    width: auto;
+    margin: 0;
   }
 
   .site-logo {
@@ -675,8 +800,17 @@ main,
 
 .resume-loading,
 .resume-error {
+  width: 100%;
   padding: 2rem;
   opacity: 0.8;
+  text-align: center;
+}
+
+.resume-pdf-wrap .react-pdf__Document {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 /* About Page */

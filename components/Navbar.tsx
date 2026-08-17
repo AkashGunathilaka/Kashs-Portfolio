@@ -45,8 +45,10 @@ export default function Navbar() {
 
         <button
           type="button"
-          className={`site-navbar-toggle ${expanded ? "open" : ""}`}
+          className={`site-navbar-toggle ${expanded ? "open" : "collapsed"}`}
           aria-label="Toggle menu"
+          aria-expanded={expanded}
+          aria-controls="site-navbar-menu"
           onClick={() => setExpanded(!expanded)}
         >
           <span />
@@ -54,26 +56,32 @@ export default function Navbar() {
           <span />
         </button>
 
-        <ul className={`site-navbar-links ${expanded ? "open" : ""}`}>
-          {navLinks.map(({ href, label, icon: Icon }) => (
-            <li key={href}>
-              <Link href={href} onClick={() => setExpanded(false)}>
-                <Icon className="nav-icon" aria-hidden="true" />
-                {label}
-              </Link>
+        <div
+          className={`site-navbar-collapse ${expanded ? "open" : ""}`}
+          id="site-navbar-menu"
+        >
+          <ul className="site-navbar-links">
+            {navLinks.map(({ href, label, icon: Icon }) => (
+              <li key={href}>
+                <Link href={href} onClick={() => setExpanded(false)}>
+                  <Icon className="nav-icon" aria-hidden="true" />
+                  {label}
+                </Link>
+              </li>
+            ))}
+            <li className="nav-github-item">
+              <a
+                href="https://github.com/AkashGunathilaka"
+                target="_blank"
+                rel="noreferrer"
+                className="site-navbar-github"
+              >
+                <AiFillStar className="nav-icon" aria-hidden="true" />
+                GitHub
+              </a>
             </li>
-          ))}
-          <li className="nav-github-item">
-            <a
-              href="https://github.com/AkashGunathilaka"
-              target="_blank"
-              rel="noreferrer"
-              className="site-navbar-github"
-            >
-              GitHub <AiFillStar className="nav-icon" aria-hidden="true" />
-            </a>
-          </li>
-        </ul>
+          </ul>
+        </div>
       </div>
     </nav>
   );
