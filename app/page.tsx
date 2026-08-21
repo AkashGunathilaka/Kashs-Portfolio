@@ -1,7 +1,8 @@
 
 import Image from "next/image";
+import TypewriterTagline from "@/components/home/Typewriter";
 
-// so this is a react component 
+
 
 export default function Home() {
   return (
@@ -18,9 +19,9 @@ export default function Home() {
             <h1 className="hero-name">
               <strong className="hero-name-highlight">I am Akash</strong>
               </h1>
-              <p className="hero-tagline">
-                Aspiring ML engineer. Student. Builder
-              </p>
+              <div className="hero-tagline">
+                <TypewriterTagline />
+              </div>
           </div>
           <div className="hero-image">
             <Image
@@ -43,16 +44,36 @@ export default function Home() {
               LET ME <span className="hero-name-highlight">INTRODUCE</span> MYSELF
             </h2>
             <p className="intro-body">
-            I&apos;m an aspiring ML engineer who loves turning ideas into real
-              projects. I enjoy learning new technologies and building things
-              that actually work.
-              <br />
-              <br />
-              I&apos;m interested in{" "}
+              I&apos;m a Software Engineer who turns ideas into solid, scalable
+              products. I recently graduated with a{" "}
               <strong className="hero-name-highlight">
-                machine learning, Python, and web development
+                First Class BSc in Computer Science
+              </strong>{" "}
+              and approach code the same way I approach the gym — progressive
+              overload, clean form, and always chasing the next PR.
+              <br />
+              <br />
+              I&apos;m deep into{" "}
+              <strong className="hero-name-highlight">
+                Python and anything data-related
               </strong>
-              , and I&apos;m always looking to grow as a developer and builder.
+              . There&apos;s nothing more satisfying than taking messy data,
+              cleaning it up, and using it to actually solve problems. Outside
+              of that I&apos;m obsessed with crypto — the tech, the markets, the
+              chaos, all of it.
+              <br />
+              <br />
+              My current stack lives around{" "}
+              <strong className="hero-name-highlight">
+                JavaScript/TypeScript, React, Next.js and Node
+              </strong>
+              , but Python is still my first love when it comes to data and
+              building intelligent systems. I like mixing clean code with a bit
+              of intensity.
+              <br />
+              <br />
+              If it&apos;s fast, useful, and a little bit obsessive… I&apos;m
+              probably already building it.
             </p>
           </div>
           <div className="intro-avatar">

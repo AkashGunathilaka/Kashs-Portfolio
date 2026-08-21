@@ -1003,3 +1003,25 @@ main,
     text-align: center;
   }
 }
+
+.Typewriter__wrapper {
+  font-size: 1.5rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.Typewriter__cursor {
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+@media (max-width: 767px) {
+  .Typewriter__wrapper {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .Typewriter__cursor {
+    display: none;
+  }
+}
